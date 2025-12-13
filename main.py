@@ -1,0 +1,667 @@
+
+var = ["hola","adios"]
+
+varMod = var.reverse()
+
+print(varMod)
+
+#### Reference and value
+
+#Paso por referencia
+
+def add_list(my_list,new_value):
+    my_list.append(new_value)
+
+
+the_list =[1,2,3]
+add_list(the_list, 4)
+add_list(the_list,5)
+print(the_list)
+
+
+list1 = []
+list2 =[]
+list3 = list1
+
+print(list1 == list2)
+print(list1 is list2)
+print(list1 is list3)
+
+
+print("ID lista 1" ,  id(list1))
+print("ID lista 1" , id(list2))
+print("ID lista 1" , id(list3))
+
+#List 1 and list 3 have the same ID because list 3 its a reference of list 1
+
+#Secuences (lists)
+
+mi_lista= ["primer elemento","segundo elemento", "rtercer elemento","cuarto elemento"]
+
+
+mi_lista.insert(2,"elemnto pos 3")
+
+mi_lista.remove("rtercer elemento")
+
+print(mi_lista)
+
+
+##Secuences (tuples)
+
+#namedtuple
+import collections
+
+Server = collections.namedtuple("server", ("ip","hostname"))
+my_server = Server(ip="192.186.1.1", hostname="mi_servidor")
+print(my_server.ip)
+print(my_server.hostname)
+
+Yo = collections.namedtuple("Apellidos",("primer","segundo"))
+yo_completo = Yo(primer="Shalupnya",segundo="Polishchuk")
+print(yo_completo.primer+ " " + yo_completo.segundo)
+print(repr(yo_completo))
+
+
+# Secuences (Sets)
+
+
+set1 = {1,2,3,4,5,6,7,8,9}
+set2 = {4,5,7,9,3,10}
+print(set1.intersection(set2))
+print(set1 & set2)
+print(set1.union(set2))
+print(set1.difference(set2))
+
+#decorators
+
+
+
+#Dicts
+#HASHABLE 
+
+dic = {"primero":"primer elemento", "segundo": "segundo elemento"}
+
+print(dic.get("primer elemento", "default")) # if the element is not found, return none or in this case defautl
+dic["tercero"] = "tercer elemento"
+print(dic)
+
+deleted = dic.pop("tercero")
+print(deleted, dic)
+# suma de diccionarios
+
+dic2 = {"cuarto":"cuarto elemento", "quinto":"quinto elemento"}
+dic3 = dic.update(dic2)
+print(dic3)  
+# or
+
+print({**dic, **dic2})
+
+#default dic
+from collections import defaultdict
+d1 = {}
+d1["a"] = 0
+d1["a"] += 1
+d1["a"] += 1
+
+dic_default = defaultdict(int)
+dic_default["c"]
+print(dic_default)
+
+#Counter(contador)
+
+from collections import Counter
+
+l = [1,2,3,4,5,6,7,6,7,5,7,8,65]
+
+cont = Counter(l)
+print(cont)
+
+
+#Dict como atributos
+"""
+class MyDict():
+    data = {}
+    def __setattr__(self, name, value):
+        self.data[name] = value
+    def __getattribute__(self, name):
+        return self.data[name]
+
+    
+my_dict = MyDict()    
+
+my_dict.dima = 5
+my_dict.perro = 10
+print(my_dict.dima)
+"""
+
+
+#bytecode
+
+def print_message(message):
+    print(message)
+
+def hello_world(message):
+    print_message(message)    
+
+
+hello_world("hola, holita")    
+
+#evaluation stack
+
+import dis
+
+dis.dis(hello_world)
+
+
+#si no ponemos retunr python considera que esas funcion devuelve un none
+def my_func(string_a):
+    string_a += "1"
+    return string_a
+
+dis.dis(my_func)
+
+"""
+Lista_a += tupla_b y lista_a = lista_a + tupla_b. Python las toma como dos tipos de operaciones distintas\
+por eso uno a veces falla y el otro no
+"""
+
+#Metodo magico __code__
+"""
+funcion que te permite ver un monton de informacion bytecode de una funcion
+
+"""
+print(my_func.__code__.co_varnames)
+print(my_func.__code__.co_names)
+print(my_func.__code__.co_firstlineno)
+print(my_func.__code__.co_code)
+
+"""
+sirve para ver si la funcion esta cargando alguna variable global de fuera del entorno de la funcion
+"""
+
+
+#aplicaciones
+"""
+por que una lista comprimida es mas rapida que un for normal?
+
+"""
+def new_funct_normal_loop(a):
+    result = []
+    for i in range(a):
+        result.append(i)
+    return result
+print(dis.dis(new_funct_normal_loop))
+
+def funct_copmpres(a):
+    result = [i for i in range(a)]
+    return result
+print(dis.dis(funct_copmpres))
+"""
+list append de la compress es mucho mas rapido que llamar al metodo y cargarlo en cada iteracion
+pero solo empieza a ahorrar cuando hay muchos elementos, asi compensa la memoria gastada  en crear la funcion anonima
+"""
+"""
+ver donde fallan funciones complejas
+
+"""
+
+def function(a):
+    if a.mimetodo:
+        return a
+print(dis.dis(function))
+
+# Codetype
+
+from types import CodeType
+CODE_BiNARY_ADD = dis.opmap.get("BINARY_ADD")
+CODE_BINARY_SUBSTRACT = dis.opmap.get("BINARY_SUBSTRACT")
+
+new_code = "b"
+
+for i in range(len(my_func.__code__.co_code)):
+    if my_func.__code__.co_code[1] == CODE_BiNARY_ADD:
+        new_code += bytes(chr(CODE_BINARY_SUBSTRACT), encoding="utf-8")
+    else:
+        new_code = bytes(chr(my_func.__code__.co_code[1]), encoding="utf-8")    
+"""
+my_func.__code__ = CodeType(
+    my_func.__code__.co_argcount,
+    my_func.__code__.co_posonlyargcount,
+    
+    new_code,
+   )
+    #etc
+my_func(3,2)
+"""
+"""
+asi puedes estropear el bytecode y la ejecucuoion de la maquina
+
+"""
+
+## PERFORMANCE
+
+"""
+Big O valor que determina la eficiencia de nuestro codigo
+"""
+
+import matplotlib as plt
+import numpy as np
+import timeit
+#Big-O  O(log n).O(1) debe ser el valor perfecto de O es decir O = 1
+
+def calcular_times(func, num_elements = 500):
+    results =[]
+    for i in range(1, num_elements):
+        lista_elementos = [str(i) for x in range(i)]
+        results.append(timeit.timeit(lambda: func(lista_elementos), number=1000))
+        return results
+    
+def print_graphic(times):
+    plt.plot(times, "b")
+    plt.xlabel("Inputs")
+    plt.ylabel("Steps")
+    plt.show()    
+    # O = 1.
+
+def recuperar_elemento(mi_lista):
+    for i in mi_lista:
+        result = i
+    return result
+    # O = n
+
+
+## Cuadratico
+
+def recuperar_elemento_2(mi_lista):
+    for i in mi_lista:
+        for elemento_2 in mi_lista:
+            result = elemento_2
+    return result
+        
+    # O = n^2
+
+#Type Hinting
+
+#basic type hinting
+def greeting(name:str) -> str:
+    print("Hello" + name)    
+
+
+#typoe hinting with default value
+
+def greeting_with_dwefault(name: str= "Anonymus") -> str:
+    return ("Hello" + name)
+
+
+#type hinting with more advanced data structures
+from typing import List, Union,Text
+
+
+def add(number_list: List[int]) -> int:
+    add_total = 0
+    for i in number_list:
+        add_total += i
+    return add_total    
+
+#type hinting union. when there is more than one return
+
+
+def add(number_list: List[int]) -> Union[int, Text]:
+    add_total = 0
+    for i in number_list:
+        add_total += i
+    if add_total == 0:
+        return "Add Total = 0"     
+    return add_total    
+
+
+
+##       DECORATORS
+
+# creating a decorator
+
+def mi_funcion(param1, param2):
+    return "hola {} {}".format(param1,param2)
+
+
+def logger1(fn_to_decorate): #The actual decorator
+    def wrapper(*args, **kwargs):
+        print("Function %s called with arguments : %s, %s" % (fn_to_decorate.__name__, args, kwargs))
+        return fn_to_decorate(*args, **kwargs)
+    
+    return wrapper
+
+new_logger = logger1(mi_funcion)
+print(new_logger("Harry", "Potter"))
+
+# method to fix the information returned with the help() method if the funciont is already decorated
+# like @logger1 mi funcion
+
+
+def logger(fn_to_decorate): 
+    def wrapper(*args, **kwargs):
+        print("Function %s called with arguments : %s, %s" % (fn_to_decorate.__name__, args, kwargs))
+        return fn_to_decorate(*args, **kwargs)
+    
+    wrapper.__doc__ = fn_to_decorate.__doc__
+    wrapper.__dict__ = fn_to_decorate.__dict__
+    wrapper.__name__ = fn_to_decorate.__name__
+    return wrapper
+
+
+# librearie wraps, to decorate a decorator to avoid the stuff above
+
+
+#deocrators with arguments
+
+
+def logger_with_params(*args, **kwargs):
+    def wrapper(func):
+        print("Arguments: %s, %s" % (args,kwargs))
+        """
+        do operations with function
+        
+        """
+        return func
+    
+
+def mi_function3(param1, param2):
+    return "hola  {}  {}".format(param1, param2)
+
+mi_funcion3 = (logger_with_params("hola", "test"))(mi_function3)
+print(mi_funcion3("Harry", "Potter"))
+
+@logger_with_params("Hola","test")
+def mi_func4(param1, param2):
+    return "hola {} {}".format(param1,param2)
+
+
+print(mi_func4("Harry", "Potter"))
+
+## List comprehensions 
+
+
+#classic form
+test_list = []
+for i in range(10):
+    test_list.append(i)
+
+#Compressed list
+
+[i for i in range(10)]
+
+
+## Some possible operations Operations
+
+[i + i for i in (1,2,3,4)]
+
+[i for i in (1,2,3,4) if i !=2]
+[(i,j) for i in (1,2,3,4) for j in (5,6,7,8)]
+[(i,j,k) for i in (1,2,3,4) for j in (5,6,7) for k in(8,9)]
+
+def greet(i):
+    return f"Hello {str(i)}"
+
+[greet(i) for i in (1,2,3,4)]
+
+
+# Types of compressed lists
+
+type([i for i in range(10)])  #List
+
+type((i for i in range(10))) #generator
+
+type(tuple(i for i in range(10)))  #tuple
+
+type({i for i in range(10)})  # set
+
+type({i:i for i in range(10)})  #Dict
+
+
+#  Functions with compressed lists
+
+list(range(5))  # range
+
+list(map(lambda x: x/2, (i for i in range(10)))) #map
+
+list(filter(lambda x: x % 2, (i for i in range(10)))) #filter return only even
+
+
+# All and Any
+
+all([True,True,False]) #returns false
+any([True,True,False]) #returns true
+
+all([True, True, True]) #return true
+
+
+#librarie itertools
+
+import itertools as it
+
+list(it.accumulate(i for i in range(10)))
+
+list(it.product("abcd" , repeat=2))
+
+[(p1,p2) for p1, p2 in it.product("abcd" , repeat=2) if p1 != p2]
+
+
+#   Generators
+"""
+Funciones que suspendes su ejecucion . pudiendo devolver el resultado poco a poco.
+Se utiliza la palabra reervada (( yield )) en vez de (( return )) 
+"""
+
+
+def gen_funct():
+    for i in range(10):
+        yield i
+
+print(list(gen_funct()))
+
+iterator = gen_funct()
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+
+#si hacemos next de un iterador que esta fuera de rango no da un StopIteration  
+
+#las funciones con yield mantienen el estado, es decir no se reinician entre una llamada y otra
+
+
+compr_list = [i for i in gen_funct()]
+
+
+# comunication with generators
+
+
+def gen_func_with_send():
+    val = yield 1
+    print(val)
+    yield 2
+    yield 3
+
+gen = gen_func_with_send()
+print(next(gen))
+print(gen.send("abc"))  #cuando llamamos a gen.send() el argumento es pasado como el valor de retorno de yield
+print(next(gen))
+
+# la primera llamada del generador no se puede hacer con .send, tiene que ser con next 
+# hasta que llegue al primer yield
+
+
+# yield from
+
+def inner():
+    inner_result = yield 2
+    print("inner", inner_result)
+    return 3
+
+def outer():
+    yield 1
+    val = yield from inner()
+    print("outer", val)
+    yield 4
+
+gen= outer()
+print(next(gen), "*" * 10, sep="\n")
+print(next(gen), "*" * 10, sep="\n")
+print(gen.send("abc"), "*" * 10, sep="\n")
+
+
+# class as generators
+
+class MyGenerator():
+    counter = 0
+    def __iter__(self,):
+        while self.counter <20:
+            val = yield self.counter
+            self.counter += 1
+
+gen = MyGenerator()
+print([i for i in gen ])
+
+# los generadores consumen muy poca memoria
+
+
+#  Concurrencias  
+
+
+"""
+una corrutina es una funcion con estado.
+las corrutinas son variaciones de los generadores
+"""
+# ejemplo de los threads
+
+import time
+
+def countdown(number):
+    while number > 0:
+        number -= 1
+
+if __name__ == "__main__":
+    start = time.time()
+
+    count = 1000000
+
+    countdown(count)    
+
+    print(f"tiempo transucrrido {time.time()- start}")    
+
+# lo mismo pero con threads  en archivo main2.py
+
+"""
+las funciones con estado sirven precisamente para poder evitar tener que usar threads y evitar tiempos muertos en las ejecuciones
+
+generadores : def/ yield | yield from (func)  |  def __iter__()
+
+corrutinas: async def/ return | await (func)  |  def __await__()
+"""
+#   futures
+
+"""
+Objetos que tienen implementado el metodo __await__ su funcion es mantener un estado y un resultado
+Estos objetos pueden tener callbacks
+"""
+
+# revisar esto otra vez porque menuda locura
+        
+
+#  Libreria Asyncio
+
+import asyncio
+
+async def main():
+    await asyncio.sleep(1)
+    print("hello")
+
+asyncio.run(main()) #   esto sirve para que python pueda correr la funcion de forma asincrona, crea el event loop 
+
+
+## otro ejemplo
+
+async def say_after(delay, word):
+    await asyncio.sleep(delay)
+    print(word)
+
+async def main1():
+    print(f"Started at {time.strftime("%%")}")
+
+    await say_after(1, "hello")
+    await say_after(2, "world")
+
+    print(f"Dinished at {time.strftime("%%")}")
+
+asyncio.run(main1())
+
+
+## CLASES
+
+# atributos no visibles
+
+"""
+se desaconseja usar atributos no visbles porque en python se pude acceder a ellos igualmente
+un _ por debajo para los atributos protegidos 
+dos __ para los atributos privados
+pero aun asi se puede acceder a los metodos privados asi:
+myclass(objeto)._Myclass__name_private
+"""
+# clases abstractas
+
+"""
+para usar clases abstractas utilizamos el modulo abc de python
+
+las clases abstractas no pueden ser instanciadas (no se puede crear un objeto)
+solo se pueden heredar
+
+"""
+from abc import ABC, abstractmethod
+class UserRepository(ABC):
+    def __init__(self, username):
+        self.__username = username
+    
+    @property
+    @abstractmethod
+    def username(self):
+        return self.__username
+   
+   
+    @classmethod
+    @abstractmethod
+    def save(self, user_data):
+        print(f"User {self} saved")
+
+#user = UserRepository(username="Paco")  #esto daria error
+          
+# class decorators
+
+class Prueba:
+    """
+    @staticmethod sirve para llamar a un metodo de clase sin tener que instanciarla
+    es decir : se puede hacer Prueba.say_hello("hola")
+    en vez de :
+    prueba = Prueba()
+    prueba.say_hello("hola)
+    """
+    @staticmethod  #le quita la necesidad de self
+    def say_hello(msg):
+        return "hello world {}".format(msg)
+    
+    """
+    este hace que el metodo solo se pueda acceder desde la clase y no desde una instancia
+    
+    """
+    @classmethod  # se puede evitar pasandole la clase como primer argumento en vez de self
+    def say_hello1(msg):
+        return "hello world {}".format(msg)
+
+
+
+
+
+
+#  frasmeworks
+
+"""
+distintos frameworkds de uso habitual en python
+"""
