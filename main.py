@@ -724,8 +724,12 @@ print(C.__mro__)
 
 print(issubclass(StaffUser, User))  # sirve para comprobar si una clase hereda de otra
 print(isinstance(c , C)) #  lo mismo pero para comprobar si un objeto es una instancia de clase
+"""
+esto puede servir para identificar excepciones personalizadas, y si son de las que hemos creado
+hacemos x o y
+"""
 
-
+issubclass(type(c), C)
 
 
 #  frameworks
