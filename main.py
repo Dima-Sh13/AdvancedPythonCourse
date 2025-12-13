@@ -689,11 +689,46 @@ class StaffMixin:
     def manageAccounts(self, accounts_list):
         print(f"Updating accounts")
 
-class StaffUser(User, StaffMixin):   # esta clase tiene doble herencia 
+class StaffUser(User, StaffMixin):   # esta clase tiene doble herencia. Tipico de Django
     pass                    
 
 
-#  frasmeworks
+# Order of herency | MRO
+
+
+class Alfabeto:
+    def say(self):
+        print("Para que quieres eso? Jajaja Salu2 crack")
+
+class A(Alfabeto):
+    def say(self):
+        print("AAA")
+        return super().say()        
+class B(Alfabeto):
+    def say(self):
+        print("BBBB")
+        return super().say()
+
+class C(A, B):
+    pass
+
+
+c = C()
+c.say()
+
+"""
+las herencias multiples sirven de poco
+"""
+
+print(C.__mro__)
+
+print(issubclass(StaffUser, User))  # sirve para comprobar si una clase hereda de otra
+print(isinstance(c , C)) #  lo mismo pero para comprobar si un objeto es una instancia de clase
+
+
+
+
+#  frameworks
 
 """
 distintos frameworkds de uso habitual en python
