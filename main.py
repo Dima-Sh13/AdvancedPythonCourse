@@ -656,8 +656,41 @@ class Prueba:
         return "hello world {}".format(msg)
 
 
+## Herencias
 
+# metodo super. Overload de metodos
 
+class User:
+    def __init__(self, name, username):
+        self.name = name
+        self.__username = username
+
+class StaffUser(User):
+   def __init__(self, name, username, age, dni):
+       super().__init__(name, username)
+       self.__age = age   #atributos privados con __
+       self.__dni = dni
+
+        
+#  Herencia Multiple
+
+class User1:
+    def __init__(self, username):
+        self.__username = username
+
+    @property
+    def username(self):
+        return self.__username
+
+    def save(self, user_data):
+        print(f"User {self} saved")
+
+class StaffMixin:
+    def manageAccounts(self, accounts_list):
+        print(f"Updating accounts")
+
+class StaffUser(User, StaffMixin):   # esta clase tiene doble herencia 
+    pass                    
 
 
 #  frasmeworks
