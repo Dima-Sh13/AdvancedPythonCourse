@@ -732,6 +732,19 @@ hacemos x o y
 issubclass(type(c), C)
 
 
+## DECORADORES DE CLASE
+
+"""
+CLASS DECORATORS. EXAMPLE:
+
+
+"""
+
+
+
+
+
+
 #  frameworks
 
 """
