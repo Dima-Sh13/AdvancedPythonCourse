@@ -741,6 +741,28 @@ CLASS DECORATORS. EXAMPLE:
 """
 
 
+## design paterns
+
+
+
+
+
+
+
+
+## DEBUGGING AND PROFILING
+
+
+
+
+
+
+
+
+
+## TESTING
+
+
 
 
 
