@@ -768,14 +768,72 @@ class MyRepr():
     def __repr__(self):
         return "soy una representacion"
       
+# __getattr__ y __setattr__ sirven para conseguir o establecer un atributo en una clase
+#comodo en muchos casos en otros no
+
+# __add__
+
+class MyAdd:
+    my_value = 10
+    def __add__(self, value):
+        print("ahora se esta sumando por __add__")
+        return self.my_value + value
+    
+myadd = MyAdd()
+
+print(myadd + 5) # al pasarle la suma al objeto se lanza directamente el metodo __add__
+
+
+# __eq__ 
+
+"""
+podemos usarlo para comparar dos clases
+
+"""
+class MyEq:
+    valor = 10
+
+    def __eq__(self, value):
+        print("se esta comprobando con value")
+        return self.valor == value
+
+myeq = MyEq()
+
+
+print(myeq == 10)
+
+print(myeq != 10)
+
+# __gt__ greater. Lo mismo que eq pero para la comprobacion de >. solo > para menor es otro
+
+
+#__hash__ hace que los objetos no hashables sean hashables. por ejemplo para los set
+
+
+class MyHash(dict):
+    name = ""
+    surname = "Jose"
+
+    def __hash__(self):
+        return hash(self.name + self.surname)
+    
+object1 = MyHash(name="Dima")
+object2 = MyHash(name = "Gregorio")
+
+set_object = {object1, object2} #ahora podemos hacer un set de objetos unicos siendo diccionarios que ahora son hashables
+
+
+# iterators  __iter__: hace que nuestra clase sea iterable  __next__: recorre uno a uno los elementos, necesita un punto de corte
+
+"""
+No hay que pasarse con los metodos magicos ya que pueden provocar comportamientos inesperados
 
 
 
 """
-CLASS DECORATORS. EXAMPLE:
 
 
-"""
+
 
 
 ## design paterns
