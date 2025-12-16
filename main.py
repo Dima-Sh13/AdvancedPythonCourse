@@ -732,7 +732,44 @@ hacemos x o y
 issubclass(type(c), C)
 
 
-## DECORADORES DE CLASE
+## METODOS MAGICOS
+
+"""
+los metodos magicos se representan __metodo__ se utilizan normalmente para sobrecargar el operador
+tambien se pueden llamar dunder methods
+__init__, __add__, __len__, __repr__
+"""
+
+#__init__: constructor de instancia de clase
+
+#__call__  el metodo es llamado cuando se llama a la instancia de la clase (como una funcion)
+
+class Llamada():
+    def __call__(self, data):
+        print("inside call")
+        self.data = data
+        
+call_object = Llamada()
+call_object(data=1)
+#esto imprime "inside call y ejecuta el codigo dentro de __call__"
+
+
+# __new__ se lanza siempre antes de ejecutar el init en la creacion de un objeto 
+# y a diferencia del __init__ si que tiene return
+# new e init tiene que tener los mismos argumentos
+
+
+
+class MyRepr():
+    """
+    repr hace que cuando haces print de una instancia de un objeto, te salga lo que has definido en
+    el return del __repr__
+    """
+    def __repr__(self):
+        return "soy una representacion"
+      
+
+
 
 """
 CLASS DECORATORS. EXAMPLE:
