@@ -861,6 +861,19 @@ No hay que pasarse con los metodos magicos ya que pueden provocar comportamiento
 
 
 
+## Sugested practice project
+
+
+# project 1
+
+
+
+#2
+
+
+
+
+
 
 #  frameworks
 
