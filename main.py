@@ -843,8 +843,101 @@ asi nos evitamor reescribir la clase
 
 
 ## design paterns
+"""
+son tecnicas para resolver problemas comunes, que ya estan predefinidas o aceptadas dentro del mundillo
+
+"""
+
+# singelton
+"""
+sirve para asegurar que la clase solo tiene una instancia 
+"""
+from datetime import datetime
+from time import sleep
 
 
+class SingletonMeta(type):
+    _instance = None
+
+    def __call__(cls):
+        if cls._instance is None:
+            cls._instance = super().__call__()
+        return cls._instance
+
+
+class Singleton(metaclass=SingletonMeta):
+    def some_business_logic(self):
+        pass
+
+
+class TimeSingleton(metaclass=SingletonMeta):
+    def __init__(self):
+        self.now_cls = datetime.utcnow()
+
+    def now_method(self):
+        return datetime.utcnow()
+
+
+if __name__ == "__main__":
+    s1 = Singleton()
+    s2 = Singleton()
+
+    if id(s1) == id(s2) and s1 is s2:
+        print("Son la misma instancia.")
+    else:
+        print("Algo aquí va mal...")
+
+    print("\n\n")
+    s3 = TimeSingleton()
+    print(s3.now_cls)
+    print(s3.now_method())
+
+    print("Esperando 3 segundos... \n")
+    sleep(3)
+
+    s4 = TimeSingleton()
+    print(s4.now_cls)
+    print(s4.now_method())
+
+"""
+sirve tambien para asegurar que cierta informacion permanezca global durante toda la aplicacion y que si se
+modifica en un sitio, se modifique tambien en otro
+"""
+
+# adapter
+"""
+sirve para unificar la interfaz de una clase con la de otra clas eya existente. permite usar la
+clase adaptada y la original de la misma forma haciendolas compatibles
+
+"""
+
+class Target:
+    def request(self) -> str:
+        return "Target: The default target's behavior."
+
+
+class Adaptee:
+    def specific_request(self) -> str:
+        return ".eetpadA eht fo roivaheb laicepS"
+
+
+class Adapter(Target):
+    def __init__(self, adaptee: Adaptee) -> None:
+        self.adaptee = adaptee
+
+    def request(self) -> str:
+        return f"Adapter: (TRANSLATED) {self.adaptee.specific_request()[::-1]}"
+
+
+if __name__ == "__main__":
+    target = Target()
+
+    adaptee = Adaptee()
+    adapter = Adapter(adaptee)
+
+    results = [target, adapter]
+    for obj in results:
+        print(obj.request())
 
 
 
