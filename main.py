@@ -827,11 +827,17 @@ set_object = {object1, object2} #ahora podemos hacer un set de objetos unicos si
 
 """
 No hay que pasarse con los metodos magicos ya que pueden provocar comportamientos inesperados
-
-
-
 """
 
+# monkey patching
+
+"""
+es una tecnica que nos permite hacer modificaciones en nuestro codigo a clases y modulos. en tiempo de ejecucion
+
+sobretodo sirve para hacer tests
+basicamente seria sustituir los ditintos modulos de una clase por lambdas, antes de instanciar
+asi nos evitamor reescribir la clase
+"""
 
 
 
