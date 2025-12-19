@@ -1011,6 +1011,33 @@ if __name__ == "__main__":
 sirve para cachear informacion. en lecturass de archivo es muy util
 """
 
+## PREPARACION DE ENTORNO
+
+"""
+HERRAMIENTA COMO PIPX O PIPTOOLS, PYENV
+"""
+
+# virtualenv y env
+"""
+hay que instalarlo antes con el pip
+para crear: en el terminal: virtualenv venv
+"""
+
+#  virtualenvwrapper
+
+"""
+tambien hay que instalar desde pip
+
+pip install virtualenvwrapper
+
+export Work/envs
+mkdir -p 
+
+definimos la carperta donde se guarda el entorno
+"""
+
+
+
 ## DEBUGGING AND PROFILING
 
 
