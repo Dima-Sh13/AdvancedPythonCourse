@@ -1035,7 +1035,31 @@ mkdir -p
 
 definimos la carperta donde se guarda el entorno
 """
+#pipenv
+""" 
+mucho mas completo que pip y requirements, te crea un archivo con mucha mas metainformacion
+en el archivo creado se guardan los hashes de las subdependecias y de las librerias usadas, 
+para trabajar siempre con exactamente la misma version
+pip env se installa con pip.
 
+pip install pipenv
+"""
+
+
+# Poetry
+"""
+herrramienta para gestion de dependencias y construccion de paquetes de python.
+utiliza ficheros .toml que es el nuevo estandar para definir los metadatos en un proyecto 
+python. nombre estandar del fichero: pyproject.toml
+
+
+comandos de terminal
+
+poetry init
+
+para añadir librerias:
+poetry add (libreria) ej: poetry add pytest
+"""
 
 
 ## DEBUGGING AND PROFILING
