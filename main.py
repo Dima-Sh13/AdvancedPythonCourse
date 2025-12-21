@@ -1062,6 +1062,18 @@ poetry add (libreria) ej: poetry add pytest
 """
 
 
+###  Styles Guide
+
+"""
+acuerdos entre programadores sobre como distribuir y escribir codigo
+estas guias se recogen el el pep 8
+"""
+"""
+en el pep 8 se definen los formatos y nomeclatura para escribit programas
+"""
+  
+
+
 ## DEBUGGING AND PROFILING
 
 
