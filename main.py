@@ -1072,6 +1072,20 @@ estas guias se recogen el el pep 8
 en el pep 8 se definen los formatos y nomeclatura para escribit programas
 """
   
+## style guides 2
+
+
+## flake 8
+
+"""
+se definen en el dstintas reglas como
+nomeclatura
+numero de espacios
+nombres de vcariable
+longitud de lineas
+
+-  pycodestyles
+"""
 
 
 ## DEBUGGING AND PROFILING
