@@ -1211,10 +1211,40 @@ tiene la capacidad de realizar generacion de informes por linea de comando o por
 esta integrado en la biblioteca estandar de python.
 tiene ciertos requisitos:
 - hay que poner los test como metodos de clase
-- utiliza metodos de asercion especiales de nuttest como TestCase en lugar de assert.
-
+- utiliza metodos de asercion especiales de unittest como TestCase en lugar de assert.
+- nuestra clase de test tiene que heredar de unittest.TestCase
 diria yo que casi deprecada existinedo pytest
 """
+
+# nose
+"""
+nose es compatible con cualquier prueba escrita usando el marco de unittest
+y puede usarse como reemplazo directo para el corredor de prueba unittest.
+nose esta deprecado y se creo una horquilla llamada nose2 que es la que se recomienda usar
+nose 2 ofrece muchos indicadores por line de comandos para filtrar las pruebas que ejecutas
+
+por saberlo. esta practicamente deprecado y sustituido por pytest
+"""
+# pytest
+
+"""
+pip install pytest
+estandar actual para los test en python
+caracteristicas resaltables de pytest:
+- soporta la declaracion de asercion incorporada (assert).
+- soporta filtrado de casos de prueba 
+- posibilidad de ejecutar desde la ultima prueba fallida
+- muchisimos complementos para ampliar la funcionalidad
+- pytest es compatible con unittest. 
+- permite parametrizacion de test, ejecucion de forma paralela, tener
+setUp/tearDown en la mismo sesion de tests
+
+pytest tiene Fixtures que nos permiten usar distintos metodos o decoradores para reusar funcionalidades
+
+las pruebas de pytest se tienen que guardar en un archivo test_***.
+puede haber mas de uno
+"""
+
 
 
 
