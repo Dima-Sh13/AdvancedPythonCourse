@@ -1085,17 +1085,57 @@ nombres de vcariable
 longitud de lineas
 
 -  pycodestyles
+
+
+McCabe- mide la complejidad ciclomatica
+
+para usar flake8 hay que instalar la libreria con pip install flake8
+"""
+
+#  black
+"""
+es un formateador de codigo python inflexible. te modifica el archivo añadiendo y quitando espacios donde sea necesario y 
+cosas por el estilo.
+sirve para normalizar el codigo trabajando en equipos, asi no saltan diferencias en el codigo
+si solo son espacios o un formateo distinto
+tipo autocorrector de movil
+"""
+#  Isort
+"""
+una libreria de formateo pero que se encarga de los imports
 """
 
 
-
-### NUevo contenido
-
-"""
-nuevo contenido añadido
-
+#  safety  
 
 """
+safety analiza todas las dependencias del proyecto en busca de vulnerabilidades de seguridad conocidas
+
+
+pip install safety
+
+safety check -r requirements.txt
+
+"""
+
+
+# bandit 
+
+"""
+otra libreria de analisis de seguridad de python segun unos tests. una especie de mock attack
+
+pip install bandit
+
+bandit -r * -x venv,src -ii -l -n 3
+"""
+
+
+# mypy
+
+"""
+es un verificador de tipado de python
+"""
+
 
 
 ## DEBUGGING AND PROFILING
