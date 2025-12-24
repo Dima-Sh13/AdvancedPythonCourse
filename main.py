@@ -1203,6 +1203,20 @@ existe la libreria coverage.
 tiene la capacidad de realizar generacion de informes por linea de comando o por html
 """
 
+##  LIBRERIAS DE TESTING
+
+# unittest
+
+"""
+esta integrado en la biblioteca estandar de python.
+tiene ciertos requisitos:
+- hay que poner los test como metodos de clase
+- utiliza metodos de asercion especiales de nuttest como TestCase en lugar de assert.
+
+diria yo que casi deprecada existinedo pytest
+"""
+
+
 
 
 
