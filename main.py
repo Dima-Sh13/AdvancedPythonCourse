@@ -1171,6 +1171,37 @@ import cProfile
 saca la informacion en un fichero program.prof
 """
 
+### TESTING
+
+"""
+hay tres tipos de test en la "piramide de testing"
+Unit(unitarios): prueba cada componente de nuestro proyecto de forma individual
+integration(programa completo): son los que prueban todo el programa para ver como trabaja en conjunto
+E2E(end to end): son los que simulan prueban como trabaja nuestra aplicacion integrada con otros servicios
+o incluso en un servidor de cara al ususario
+de menos a mas van de mas baratos a mas caros y de mas rapidos a lentos.
+"""
+
+# tests
+"""
+por convencion en python:
+- los test se guardan en el directorio raiz en la capeta "tests"
+- los archivos de test se nombran: test_****.py ( tambien es necesario para que pytest los pueda leer)
+- las clases o metodos que recogen un test empezan por Test o test_
+
+en los test se utiliza assert
+
+ahora el estandar es pytest. que es la que se usar
+
+"""
+# cobertura
+"""
+en python un error no salta hasta que la ejecucion pasa por ese punto por eso es muy importante 
+tener una cobertura de test amplia para cubrir todas las funciones aunque no se ejecuten simepre
+
+existe la libreria coverage.
+tiene la capacidad de realizar generacion de informes por linea de comando o por html
+"""
 
 
 
@@ -1181,7 +1212,8 @@ saca la informacion en un fichero program.prof
 
 
 
-## TESTING
+
+
 
 
 
