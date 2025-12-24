@@ -1137,8 +1137,35 @@ es un verificador de tipado de python
 """
 
 
+### DEBUGGING AND PROFILING
 
-## DEBUGGING AND PROFILING
+
+# Ipython 
+"""
+consola enriquecida de python
+"""
+# debugging con pdb 
+
+"""
+el modulo pdb define un depurador de codigo fuente interactivo para programas python
+soporta puntos de ruptura y cosas
+tambien existe ipbd que combina ipython y pbd
+"""
+# libreria logging
+"""
+import logging.
+
+logging.basicConfig()
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
+en server se puede cambiar por:
+logger.setLevel(logging.INFO) o niveles superiores
+(logging.WARNING)
+(logging.ERROR)
+"""
+ 
+
 
 
 
