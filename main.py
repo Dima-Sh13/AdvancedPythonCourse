@@ -1164,7 +1164,13 @@ logger.setLevel(logging.INFO) o niveles superiores
 (logging.WARNING)
 (logging.ERROR)
 """
- 
+#  libreria cProfile
+"""
+import cProfile
+
+saca la informacion en un fichero program.prof
+"""
+
 
 
 
