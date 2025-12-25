@@ -1245,7 +1245,14 @@ las pruebas de pytest se tienen que guardar en un archivo test_***.
 puede haber mas de uno
 """
 
+###  PATCHING AND MOCKS
 
+
+"""
+PATXCIHNG AND MOCKS USES:
+
+
+"""
 
 
 
