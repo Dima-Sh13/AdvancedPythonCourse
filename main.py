@@ -1247,12 +1247,16 @@ puede haber mas de uno
 
 ###  PATCHING AND MOCKS
 
+"""
+mocks:
+objetos dummy que devuelven lo que nosotros queremos que devuelvan.
+su uso principar es para mockear terceros.
+como respuestas de apis externas o nuestras propias funciones
+
+from unittest.mock import patch
 
 """
-PATXCIHNG AND MOCKS USES:
 
-
-"""
 
 
 
