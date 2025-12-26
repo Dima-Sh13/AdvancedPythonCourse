@@ -1255,7 +1255,15 @@ como respuestas de apis externas o nuestras propias funciones
 
 from unittest.mock import patch
 
+los mocks tienen un funcionalidad especial que es: return_value
+que permite establecer lo que devuelve la funcion mock.
+
+tambien tienen metodos como .assert_called_once() que nos devuelve si la ejecucion 
+ha pasado por ese punto. 
+called once solo devuelve treu si SOLO se llama una vez, si son mas no
+
 """
+
 
 
 
