@@ -1264,3 +1264,56 @@ called once solo devuelve treu si SOLO se llama una vez, si son mas no
 
 """
 
+### Testing | TDD 
+
+"""
+tdd se refiere al desarollo guiado por pruebas de software. se centra en dos principios:
+escribir las pruebas primero y luego refactorizar.
+de este modo nos aseguramos un codigo limpio dirigido a pasar las pruebas que representan los requisitos de nuestra aplicacion
+
+"""
+
+
+## solid (single responsability principle) 
+"""
+es decir segun el principio solid, una clase o un modulo tendran una unioca responsabilidad
+
+"""
+
+## principio OCP
+"""
+una clase debe permitir ser extendida sin necesidad de ser modificada.
+
+este principio nos recomienda que cuando queramos introducir un comportamiento nuevo en 
+un codigo ya existente esto se debe hacer añadiendo clases y funciones nuevas
+mediante herencia y redefinicion de metodos, no cambiando nada que ya funcione ya que puede
+desencadenar un fallo en cascada
+"""
+
+##  principio de sustitucion de liskov (LSP)
+
+"""
+si una instancia de la clase B es un subtipo de una clase A, debemos poder sustituirla por una instancia de la clase A 
+sin mayor problema
+
+"""
+
+## principio de segregacion de interfaces (ISP)
+
+"""
+este principio nos dice que ninguna clase deberia depender de metodos que no usa.
+cuando el programa crece es bueno asegurarse que todoas las instancias creadas vayan a usar los 
+metodos de clase. en caso negativo es mejor tener varias clases pequeñas
+
+"""
+
+##  principio de inversion de dependencias (DIP)
+
+"""
+su objetivo es desacoplar nuestro codigo de sus dependencias directas.
+las clases de las capas superiores no deberian depender de las clases de las capas
+inferirores si no que ambas dependan de las abstracciones.
+
+que nuestras clases no dependan de otras, basicamente. que no esten obligadas a funcionar con otras clases
+
+"""
