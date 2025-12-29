@@ -1317,3 +1317,15 @@ inferirores si no que ambas dependan de las abstracciones.
 que nuestras clases no dependan de otras, basicamente. que no esten obligadas a funcionar con otras clases
 
 """
+
+### TDD
+
+"""
+metodologia de trabajo.
+
+Primero los test y luego se refactoriza.
+
+Se escriben primero las necesidades del programa y que funciones debe realizar
+
+se centra en el principio SOLID
+"""
