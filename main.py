@@ -1333,3 +1333,14 @@ se centra en el principio SOLID
 
 ### Proyectosde practicas
 
+
+# project 1
+
+
+# project 2
+
+
+# project 3
+
+
+# project 4
