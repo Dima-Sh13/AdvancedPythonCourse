@@ -1331,6 +1331,22 @@ se centra en el principio SOLID
 """
 
 
+### creadno librerias y paquetes
+
+"""
+para subir un paquete de python lo debemos hacer desde pypi.org
+
+
+para froma privada seria Nexus y Artifactory. o con docker
+
+se suele distribuir utilizando el fichero setup.py
+
+from setuptools import find_packages, setup
+
+"""
+
+
+
 ### Proyectosde practicas
 
 
