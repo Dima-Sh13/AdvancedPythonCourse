@@ -1345,6 +1345,19 @@ from setuptools import find_packages, setup
 
 """
 
+### Cerear librerias en local con servidor docker
+
+"""
+htpasswd -sc .htpasswd pip
+docker run -v $(pwd)/.htpasswd:/data/.htpasswd -p 8080:8080 pypiserver:latest -P .htpasswd packages
+
+
+con el primer comando generamos un usuario para nuestro servidor al ejecutarlo te pedira una contraseña
+
+"""
+
+
+
 
 
 ### Proyectosde practicas
