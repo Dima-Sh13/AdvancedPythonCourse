@@ -6,3 +6,6 @@ def test_main_4():
 
 def test_main_5():
     assert main(5) == ["Miau!","Miau!","Miau!","Miau!","Miau!"]
+
+def test_main_1():
+    assert main(1) == ["Miau!"]     
