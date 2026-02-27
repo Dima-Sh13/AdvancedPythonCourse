@@ -1331,8 +1331,46 @@ se centra en el principio SOLID
 """
 
 
+### creadno librerias y paquetes
+
+"""
+para subir un paquete de python lo debemos hacer desde pypi.org
+
+
+para froma privada seria Nexus y Artifactory. o con docker
+
+se suele distribuir utilizando el fichero setup.py
+
+from setuptools import find_packages, setup
 
 """
 
-Estoy harto de esto y no quero ser programador
+### Cerear librerias en local con servidor docker
+
 """
+htpasswd -sc .htpasswd pip
+docker run -v $(pwd)/.htpasswd:/data/.htpasswd -p 8080:8080 pypiserver:latest -P .htpasswd packages
+
+
+con el primer comando generamos un usuario para nuestro servidor al ejecutarlo te pedira una contraseña
+
+"""
+
+
+
+
+
+### Proyectosde practicas
+
+
+# project 1
+
+
+
+# project 2
+
+
+# project 3
+
+
+# project 4
