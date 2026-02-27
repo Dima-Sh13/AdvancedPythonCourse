@@ -1329,3 +1329,10 @@ Se escriben primero las necesidades del programa y que funciones debe realizar
 
 se centra en el principio SOLID
 """
+
+
+
+"""
+
+Estoy harto de esto y no quero ser programador
+"""
